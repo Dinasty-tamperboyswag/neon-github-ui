@@ -1,0 +1,139 @@
+@-moz-document domain("github.com") {
+
+:root{
+  --bg:#050816;
+  --panel:#0b1023;
+  --panel2:#111827;
+  --neon:#00f0ff;
+  --purple:#9d4edd;
+  --text:#d6f6ff;
+  --border:rgba(0,240,255,.18);
+}
+
+/* MAIN */
+body{
+  background:
+    radial-gradient(circle at top left,#111827 0%,#050816 55%),
+    linear-gradient(135deg,#050816,#0b1023);
+  color:var(--text)!important;
+  font-family:'JetBrains Mono',monospace!important;
+}
+
+/* PANELS */
+.application-main,
+.Layout,
+.feed-background,
+.color-bg-default,
+.Box,
+.Box-body,
+.Box-header,
+.Header,
+.file,
+.repository-content{
+  background:rgba(11,16,35,.82)!important;
+  backdrop-filter:blur(18px);
+  border-color:var(--border)!important;
+  box-shadow:
+    0 0 15px rgba(0,240,255,.08),
+    0 0 40px rgba(157,78,221,.08);
+}
+
+/* LINKS */
+a{
+  color:var(--neon)!important;
+  transition:.25s ease;
+}
+
+a:hover{
+  color:#7df9ff!important;
+  text-shadow:0 0 10px var(--neon);
+}
+
+/* BUTTONS */
+.btn,
+.Button{
+  background:linear-gradient(135deg,#111827,#1e293b)!important;
+  color:var(--text)!important;
+  border:1px solid var(--border)!important;
+  border-radius:14px!important;
+  transition:.25s ease!important;
+}
+
+.btn:hover,
+.Button:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 0 10px rgba(0,240,255,.35),
+    0 0 30px rgba(157,78,221,.2);
+}
+
+/* CODE */
+pre,
+code,
+textarea{
+  background:#0b1023!important;
+  color:#7df9ff!important;
+  border-radius:12px!important;
+}
+
+/* FILE TREE */
+.js-navigation-item{
+  transition:.2s ease;
+}
+
+.js-navigation-item:hover{
+  background:rgba(0,240,255,.08)!important;
+  transform:translateX(4px);
+}
+
+/* HEADER */
+.Header{
+  border-bottom:1px solid rgba(0,240,255,.18)!important;
+}
+
+/* GLOW EFFECT */
+.Box:hover,
+.file:hover{
+  box-shadow:
+    0 0 20px rgba(0,240,255,.12),
+    0 0 60px rgba(157,78,221,.15);
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{
+  width:10px;
+  height:10px;
+}
+
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(var(--neon),var(--purple));
+  border-radius:20px;
+}
+
+/* ANIMATED SCANLINE */
+body::before{
+  content:'';
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(0,240,255,.03),
+      transparent
+    );
+  animation:scanline 7s linear infinite;
+  z-index:9999;
+}
+
+@keyframes scanline{
+  from{
+    transform:translateX(-100%);
+  }
+  to{
+    transform:translateX(100%);
+  }
+}
+
+}
